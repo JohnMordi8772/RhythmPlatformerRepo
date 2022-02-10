@@ -45,7 +45,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Movement()
     {
-        rb2d.velocity = new Vector2(max)
+        rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
 
         if (Input.GetKey(slide))
         {
