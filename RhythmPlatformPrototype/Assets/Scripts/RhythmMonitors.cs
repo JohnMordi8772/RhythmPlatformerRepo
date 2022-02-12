@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RhythmMonitors : MonoBehaviour
 {
     bool playerWithin, hitCorrectly, hitIncorrectly;
     KeyCode choice;
+    [SerializeField]Image placement;
+    [SerializeField]List<Sprite> arrows;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -16,15 +20,19 @@ public class RhythmMonitors : MonoBehaviour
         {
             case 1:
                 choice = KeyCode.UpArrow;
+                placement.sprite = arrows[0];
                 break;
             case 2:
                 choice = KeyCode.DownArrow;
+                placement.sprite = arrows[1];
                 break;
             case 3:
                 choice = KeyCode.LeftArrow;
+                placement.sprite = arrows[2];
                 break;
             case 4:
                 choice = KeyCode.RightArrow;
+                placement.sprite = arrows[3];
                 break;
         }
     }
