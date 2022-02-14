@@ -49,13 +49,11 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (Input.GetKey(slide))
         {
-            normalHB.enabled = false;
-            slideHB.enabled = true;
+            transform.rotation = Quaternion.Euler(0, 0, 90);
         }
         else
         {
-            normalHB.enabled = true;
-            slideHB.enabled = false;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 

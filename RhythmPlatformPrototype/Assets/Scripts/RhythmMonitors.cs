@@ -7,32 +7,42 @@ public class RhythmMonitors : MonoBehaviour
 {
     bool playerWithin, hitCorrectly, hitIncorrectly;
     KeyCode choice;
+
+    public GameObject upArrow, downArrow, leftArrow, rightArrow;
+
     [SerializeField]Image placement;
     [SerializeField]List<Sprite> arrows;
+
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerWithin = false;
         hitCorrectly = false;
         hitIncorrectly = false;
-        switch(Random.Range(1,4))
+
+        //the maximum value on a Random.Range is exclusive.
+        switch(Random.Range(1,5))
         {
             case 1:
                 choice = KeyCode.UpArrow;
-                placement.sprite = arrows[0];
+                //placement.sprite = arrows[0];
+                upArrow.SetActive(true); 
                 break;
             case 2:
                 choice = KeyCode.DownArrow;
-                placement.sprite = arrows[1];
+                //placement.sprite = arrows[1];
+                downArrow.SetActive(true);
                 break;
             case 3:
                 choice = KeyCode.LeftArrow;
-                placement.sprite = arrows[2];
+                //placement.sprite = arrows[2];
+                leftArrow.SetActive(true);
                 break;
             case 4:
                 choice = KeyCode.RightArrow;
-                placement.sprite = arrows[3];
+                //placement.sprite = arrows[3];
+                rightArrow.SetActive(true);
                 break;
         }
     }
