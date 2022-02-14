@@ -28,8 +28,8 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (Input.GetKeyDown(jump) && grounded)
         {
-            rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             grounded = false;
+            rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             print("Up");
 
             jumped = true;
