@@ -50,11 +50,15 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (Input.GetKey(slide))
         {
-            transform.rotation = Quaternion.Euler(0, 0, 90);
+            //transform.rotation = Quaternion.Euler(0, 0, 90);
+            normalHB.size = new Vector2(1, 0.5f);
+            GetComponent<SpriteRenderer>().size = new Vector2(1, 0.5f);
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            //transform.rotation = Quaternion.Euler(0, 0, 0);
+            normalHB.size = new Vector2(1, 1);
+            GetComponent<SpriteRenderer>().size = new Vector2(1, 1);
         }
     }
 
