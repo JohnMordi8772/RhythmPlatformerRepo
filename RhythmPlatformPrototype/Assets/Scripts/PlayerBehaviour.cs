@@ -26,12 +26,13 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(jump))
+        if (Input.GetKeyDown(jump) && grounded)
         {
-            print("Up");
             rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            jumped = true;
             grounded = false;
+            print("Up");
+
+            jumped = true;
         }
     }
 
