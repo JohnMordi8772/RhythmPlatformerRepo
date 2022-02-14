@@ -610,7 +610,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1939150901
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -738,8 +738,8 @@ MonoBehaviour:
   jumped: 0
   grounded: 0
   rb2d: {fileID: 1939150900}
-  moveSpeed: 0
-  jumpForce: 0
+  moveSpeed: 1
+  jumpForce: 7
   groundNormal: {x: 0, y: 0}
   curveCenterBottom: {x: 0, y: 0}
 --- !u!1 &2000938683
