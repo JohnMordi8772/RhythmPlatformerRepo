@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    public float tempo;
+    public float currentSpeed;
+    public float missPenalty;
+    public float correctBonus;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +19,17 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Monitoring(bool correct)
+    {
+        if (correct)
+        {
+            currentSpeed += correctBonus;
+        }
+        else
+        {
+            currentSpeed -= missPenalty;
+        }
     }
 }

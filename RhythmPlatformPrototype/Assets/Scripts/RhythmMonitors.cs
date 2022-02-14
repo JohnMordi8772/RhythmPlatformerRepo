@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class RhythmMonitors : MonoBehaviour
 {
-    bool playerWithin, hitCorrectly, hitIncorrectly;
+    bool playerWithin, hit;
     KeyCode choice;
 
     public GameObject upArrow, downArrow, leftArrow, rightArrow;
@@ -13,13 +13,15 @@ public class RhythmMonitors : MonoBehaviour
     [SerializeField]Image placement;
     [SerializeField]List<Sprite> arrows;
 
+    public GameController gc;
     
     // Start is called before the first frame update
     void Awake()
     {
+        gc = GameObject.Find("GameController").GetComponent<GameController>();
+
         playerWithin = false;
-        hitCorrectly = false;
-        hitIncorrectly = false;
+        hit = false;
 
         //the maximum value on a Random.Range is exclusive.
         switch(Random.Range(1,5))
@@ -50,16 +52,18 @@ public class RhythmMonitors : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerWithin)
+        if(playerWithin && !hit)
         {
-            if(Input.GetKeyDown(choice) && !hitCorrectly && !hitIncorrectly)
+            if(Input.GetKeyDown(choice))
             {
-                hitCorrectly = true;
+                gc.Monitoring(true);
+                hit = true;
                 Debug.Log("Correct, you're great");
             }
             else if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
             {
-                hitIncorrectly = true;
+                gc.Monitoring(false);
+                hit = true;
                 Debug.Log("Wrong, you suck");
             }
         }
