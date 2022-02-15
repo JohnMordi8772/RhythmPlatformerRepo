@@ -4,32 +4,19 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public float tempo;
-    public float currentSpeed;
+    public float currentSpeed = 1f;
     public float missPenalty;
     public float correctBonus;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Monitoring(bool correct)
     {
         if (correct)
         {
-            currentSpeed += correctBonus;
+            Time.timeScale += correctBonus;
         }
         else
         {
-            currentSpeed -= missPenalty;
+            Time.timeScale -= missPenalty;
         }
     }
 }
