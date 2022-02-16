@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class PlatformBehaviour : MonoBehaviour
 {
-    public float tempo;
-    public float moveSpeed;
-
+    public GameObject Player;
     // Start is called before the first frame update
     void Awake()
     {
-        tempo = 60;
-        moveSpeed = tempo/12;
+        Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+       if(transform.position.x == Player.transform.position.x - 16)
+        {
+            Destroy(gameObject);
+        }
     }
 }
