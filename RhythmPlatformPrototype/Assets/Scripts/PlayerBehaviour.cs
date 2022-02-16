@@ -14,13 +14,14 @@ public class PlayerBehaviour : MonoBehaviour
     public bool grounded;
     public Rigidbody2D rb2d;
     public float moveSpeed;
-    public float jumpForce;
+    public float jumpForce = 14;
     public Vector2 groundNormal;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        moveSpeed = 8;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -46,7 +47,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Movement()
     {
-        rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
+        rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y) * Time.deltaTime * 50;
 
         if (Input.GetKey(slide))
         {

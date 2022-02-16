@@ -13,12 +13,14 @@ public class RhythmMonitors : MonoBehaviour
     [SerializeField]Image placement;
     [SerializeField]List<Sprite> arrows;
 
+    public GameObject GameController;
     public GameController gc;
     
     // Start is called before the first frame update
     void Awake()
     {
-        gc = GameObject.Find("GameController").GetComponent<GameController>();
+        GameController = GameObject.Find("GameController");
+        gc = GameController.GetComponent<GameController>();
 
         playerWithin = false;
         hit = false;
@@ -28,23 +30,23 @@ public class RhythmMonitors : MonoBehaviour
         {
             case 1:
                 choice = KeyCode.UpArrow;
-                placement.sprite = arrows[0];
-                //upArrow.SetActive(true); 
+                //placement.sprite = arrows[0];
+                upArrow.SetActive(true); 
                 break;
             case 2:
                 choice = KeyCode.DownArrow;
-                placement.sprite = arrows[1];
-                //downArrow.SetActive(true);
+                //placement.sprite = arrows[1];
+                downArrow.SetActive(true);
                 break;
             case 3:
                 choice = KeyCode.LeftArrow;
-                placement.sprite = arrows[2];
-                //leftArrow.SetActive(true);
+                ///placement.sprite = arrows[2];
+                leftArrow.SetActive(true);
                 break;
             case 4:
                 choice = KeyCode.RightArrow;
-                placement.sprite = arrows[3];
-                //rightArrow.SetActive(true);
+                //placement.sprite = arrows[3];
+                rightArrow.SetActive(true);
                 break;
         }
     }
@@ -77,5 +79,9 @@ public class RhythmMonitors : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         playerWithin = false;
+        if(hit != true)
+        {
+            gc.Monitoring(false);
+        }    
     }
 }
