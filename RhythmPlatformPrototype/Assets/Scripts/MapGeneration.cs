@@ -17,7 +17,7 @@ public class MapGeneration : MonoBehaviour
 
         newXposition = 0;
         PlayerPos = Player.transform;
-        InvokeRepeating("SpawnPlatforms", 0, .05f);   
+        InvokeRepeating("SpawnPlatforms", 0, 50 * Time.deltaTime);   
 
     }
 

@@ -10,11 +10,13 @@ public class GameController : MonoBehaviour
     public GameObject Camera;
     public AudioClip correctSound;
     public AudioClip wrongSound;
+    public MetronomeBehaviour mtb;
 
     public void Awake()
     {
         missPenalty = .05f;
         correctBonus = .05f;
+        mtb = Camera.GetComponent<MetronomeBehaviour>();
     }
     public void Monitoring(bool correct)
     {
@@ -24,6 +26,7 @@ public class GameController : MonoBehaviour
             if(Time.timeScale < 1.25f)
             {
                 Time.timeScale += correctBonus;
+                mtb.tempo += (correctBonus / 2);
             }
             print(Time.timeScale);
         }
@@ -33,6 +36,7 @@ public class GameController : MonoBehaviour
             {
                 Time.timeScale -= missPenalty;
                 print(Time.timeScale);
+                mtb.tempo -= (missPenalty / 2);
             }
             AudioSource.PlayClipAtPoint(wrongSound, Camera.transform.position);
         }

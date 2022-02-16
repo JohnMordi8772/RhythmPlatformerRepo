@@ -14,7 +14,7 @@ public class PlatformBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(transform.position.x == Player.transform.position.x - 16)
+       if(gameObject.transform.position.x <= Player.transform.position.x - 32)
         {
             Destroy(gameObject);
         }
