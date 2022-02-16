@@ -11,7 +11,7 @@ public class PlatformBehaviour : MonoBehaviour
     void Awake()
     {
         tempo = 60;
-        moveSpeed = tempo/30;
+        moveSpeed = tempo/12;
     }
 
     // Update is called once per frame
