@@ -24,7 +24,15 @@ public class MapGeneration : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int i = Random.Range(0, 9); 
+        int i = Random.Range(0, 2); 
+        if(i == 0)
+        {
+            i = Random.Range(0, 2);
+        }
+        else
+        {
+            i = Random.Range(2, 9);
+        }
         currentPlatformType = PlatformTypes[i];
     }
 
