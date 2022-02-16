@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public float correctBonus;
     public GameObject Camera;
     public AudioClip correctSound;
+    public AudioClip wrongSound;
 
     public void Awake()
     {
@@ -33,7 +34,7 @@ public class GameController : MonoBehaviour
                 Time.timeScale -= missPenalty;
                 print(Time.timeScale);
             }
-            
+            AudioSource.PlayClipAtPoint(wrongSound, Camera.transform.position);
         }
 
         
