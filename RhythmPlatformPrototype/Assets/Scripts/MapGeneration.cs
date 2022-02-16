@@ -8,26 +8,29 @@ public class MapGeneration : MonoBehaviour
     public Transform PlayerPos;
     public GameObject currentPlatformType;
     public GameObject SpikePlatform, DuckPlatform, HalfNotePlatform, QuarterNoteRhythmPlatform, TwoEighthNotePlat1, TwoEighthNotePlat2, TwoEightNotePlat2, QuarterEighth1, QuarterEighth2;
-    public int newXposition;
-
+    public float newXposition;
+    public GameObject[] PlatformTypes;
     // Start is called before the first frame update
     void Awake()
     {
+        PlatformTypes = new GameObject[] { SpikePlatform, DuckPlatform, HalfNotePlatform, QuarterNoteRhythmPlatform, TwoEighthNotePlat1, TwoEighthNotePlat2, TwoEightNotePlat2, QuarterEighth1, QuarterEighth2 };
+
         newXposition = 0;
         PlayerPos = Player.transform;
-        InvokeRepeating("SpawnPlatforms", 0, 20 * Time.deltaTime);   
+        InvokeRepeating("SpawnPlatforms", 0, .05f);   
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        int i = Random.Range(0, 9); 
+        currentPlatformType = PlatformTypes[i];
     }
 
     void SpawnPlatforms()
     {
-        Instantiate(currentPlatformType, new Vector2(newXposition, -2), Quaternion.identity);
-        newXposition += 8;
+        Instantiate(currentPlatformType, new Vector2((newXposition - 2.5f), -2), Quaternion.identity);
+        newXposition += 10f;
     }
 }

@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
         if (correct)
         {
             AudioSource.PlayClipAtPoint(correctSound, Camera.transform.position);
-            if(Time.timeScale < 1.5f)
+            if(Time.timeScale < 1.25f)
             {
                 Time.timeScale += correctBonus;
             }
@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            if(Time.timeScale > 0.5f)
+            if(Time.timeScale > 0.75f)
             {
                 Time.timeScale -= missPenalty;
                 print(Time.timeScale);

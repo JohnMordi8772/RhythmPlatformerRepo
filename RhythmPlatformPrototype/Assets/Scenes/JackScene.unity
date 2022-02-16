@@ -221,17 +221,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 1939150898}
   PlayerPos: {fileID: 0}
-  currentPlatformType: {fileID: 5772268820812777584, guid: fe6543ca74002cd4484aafc7a61fed8f, type: 3}
-  SpikePlatform: {fileID: 0}
+  currentPlatformType: {fileID: 5772268820812777584, guid: 59557e7c4edc36c4e9a81c13ff71d72a, type: 3}
+  SpikePlatform: {fileID: 5772268820812777584, guid: 6a0376dd821668b40862778de64587af, type: 3}
   DuckPlatform: {fileID: 0}
-  HalfNotePlatform: {fileID: 0}
-  QuarterNoteRhythmPlatform: {fileID: 0}
-  TwoEighthNotePlat1: {fileID: 0}
-  TwoEighthNotePlat2: {fileID: 0}
-  TwoEightNotePlat2: {fileID: 0}
-  QuarterEighth1: {fileID: 0}
-  QuarterEighth2: {fileID: 0}
+  HalfNotePlatform: {fileID: 5772268820812777584, guid: f06709d8b9fb8584d8c5180da5737d5b, type: 3}
+  QuarterNoteRhythmPlatform: {fileID: 5772268820812777584, guid: 59557e7c4edc36c4e9a81c13ff71d72a, type: 3}
+  TwoEighthNotePlat1: {fileID: 5772268820812777584, guid: fe6543ca74002cd4484aafc7a61fed8f, type: 3}
+  TwoEighthNotePlat2: {fileID: 5772268820812777584, guid: 7fc3c8a7c42a9674da8ca0f5f49478cd, type: 3}
+  TwoEightNotePlat2: {fileID: 5772268820812777584, guid: 781d550972f5a45409f8aeea6d3c5765, type: 3}
+  QuarterEighth1: {fileID: 5772268820812777584, guid: 0b984a4488f5dcf4fb58ea483c66cfdd, type: 3}
+  QuarterEighth2: {fileID: 5772268820812777584, guid: 237202fc1b587de49bd2d7eb57e08487, type: 3}
   newXposition: 0
+  PlatformTypes: []
 --- !u!4 &1495744261
 Transform:
   m_ObjectHideFlags: 0
@@ -364,7 +365,7 @@ GameObject:
   - component: {fileID: 1939150904}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
