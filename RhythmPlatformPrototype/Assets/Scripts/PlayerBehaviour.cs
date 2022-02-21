@@ -13,6 +13,7 @@ public class PlayerBehaviour : MonoBehaviour
     public bool jumped = false;
     public bool grounded;
     public Rigidbody2D rb2d;
+    public GameController gc;
     public float moveSpeed;
     public float jumpForce = 14;
     public Vector2 groundNormal;
@@ -21,6 +22,9 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        gc = GameObject.Find("GameController").GetComponent<GameController>();
+        moveSpeed = (gc.upb * gc.bpm) / 60f;
+        print(moveSpeed);
     }
 
     // Update is called once per frame
@@ -38,7 +42,9 @@ public class PlayerBehaviour : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(grounded == true)
+        rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
+
+        if (grounded == true)
         {
             Movement();
         }
@@ -46,8 +52,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Movement()
     {
-        rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y) * Time.deltaTime * 50;
-
         if (Input.GetKey(slide))
         {
             normalHB.size = new Vector2(1, 0.5f);
@@ -64,16 +68,16 @@ public class PlayerBehaviour : MonoBehaviour
     {
         ContactPoint2D[] contacts = new ContactPoint2D[collision.contactCount];
         collision.GetContacts(contacts);
-        GroundCheck(contacts, collision.otherCollider);
+        GroundCheck(contacts);
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if(grounded == false)
+        if (grounded == false)
         {
             ContactPoint2D[] contacts = new ContactPoint2D[collision.contactCount];
             collision.GetContacts(contacts);
-            GroundCheck(contacts, collision.otherCollider);
+            GroundCheck(contacts);
         }
     }
 
@@ -87,24 +91,17 @@ public class PlayerBehaviour : MonoBehaviour
         {
             ContactPoint2D[] contacts = new ContactPoint2D[collision.contactCount];
             collision.GetContacts(contacts);
-            GroundCheck(contacts, collision.otherCollider);
+            GroundCheck(contacts);
         }
     }
 
     public Vector2 curveCenterBottom;
 
-    void GroundCheck(ContactPoint2D[] contacts_, Collider2D coll)
+    void GroundCheck(ContactPoint2D[] contacts_)
     {
         grounded = false;
 
-        if (coll == normalHB)
-        {
-            curveCenterBottom = coll.bounds.center - Vector3.up * (coll.bounds.extents.y - coll.bounds.extents.x);
-        }
-        else
-        {
-            curveCenterBottom = coll.bounds.center;
-        }
+        curveCenterBottom = normalHB.bounds.center;
 
         foreach (ContactPoint2D c in contacts_)
         {
