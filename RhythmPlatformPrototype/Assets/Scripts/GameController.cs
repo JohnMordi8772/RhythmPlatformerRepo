@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     public void Awake()
     {
         pb = GameObject.Find("Player").GetComponent<PlayerBehaviour>();
-        bpm = 122f;
+        bpm = 120f;
         upb = 5f;
         pb.moveSpeed = (upb * bpm) / 60f;
         missPenalty = .05f;

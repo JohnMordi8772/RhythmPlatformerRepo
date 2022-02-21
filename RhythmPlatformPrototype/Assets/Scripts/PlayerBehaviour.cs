@@ -112,8 +112,6 @@ public class PlayerBehaviour : MonoBehaviour
 
             if (dir.y < 0f)
             {
-                groundNormal = c.normal;
-
                 grounded = true;
                 jumped = false;
             }
