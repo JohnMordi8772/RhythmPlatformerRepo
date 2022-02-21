@@ -20,7 +20,6 @@ public class PlayerBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        moveSpeed = 8;
         Time.timeScale = 1;
     }
 

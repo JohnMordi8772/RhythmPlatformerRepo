@@ -480,8 +480,11 @@ MonoBehaviour:
   currentSpeed: 1
   missPenalty: 0
   correctBonus: 0
+  bpm: 0
+  upb: 0
+  pb: {fileID: 0}
   Camera: {fileID: 1598567315}
-  correctSound: {fileID: 8300000, guid: 8afc09cd1e71a404e8bd000f32d5c2c3, type: 3}
+  correctSound: {fileID: 8300000, guid: a73ae3811d39c9549b49b5dda843a452, type: 3}
   wrongSound: {fileID: 8300000, guid: 3fb89728f35a5a348ba9593563710e80, type: 3}
   mtb: {fileID: 0}
 --- !u!1 &1598567315
@@ -579,7 +582,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6844988ead462f5459a86334f67460aa, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 24c7465bed17e2a4783e35db3f15ca78, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -990,7 +993,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939150898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.5, y: 0, z: 0}
+  m_LocalPosition: {x: -27.5, y: -0.779, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2000938684}
@@ -1033,7 +1036,7 @@ MonoBehaviour:
   jumped: 0
   grounded: 0
   rb2d: {fileID: 1939150900}
-  moveSpeed: 1
+  moveSpeed: 2.5
   jumpForce: 7
   groundNormal: {x: 0, y: 0}
   curveCenterBottom: {x: 0, y: 0}

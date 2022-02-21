@@ -7,6 +7,11 @@ public class GameController : MonoBehaviour
     public float currentSpeed = 1f;
     public float missPenalty;
     public float correctBonus;
+
+    public float bpm;
+    public float upb;
+
+    public PlayerBehaviour pb;
     public GameObject Camera;
     public AudioClip correctSound;
     public AudioClip wrongSound;
@@ -14,10 +19,15 @@ public class GameController : MonoBehaviour
 
     public void Awake()
     {
+        pb = GameObject.Find("Player").GetComponent<PlayerBehaviour>();
+        bpm = 122f;
+        upb = 2.5f;
+        pb.moveSpeed = (upb * bpm) / 60f;
         missPenalty = .05f;
         correctBonus = .05f;
         mtb = Camera.GetComponent<MetronomeBehaviour>();
     }
+
     public void Monitoring(bool correct)
     {
         if (correct)
@@ -26,7 +36,7 @@ public class GameController : MonoBehaviour
             if(Time.timeScale < 1.25f)
             {
                 Time.timeScale += correctBonus;
-                mtb.tempo += (correctBonus / 2);
+                mtb.tempo += correctBonus;
             }
             print(Time.timeScale);
         }
@@ -36,7 +46,7 @@ public class GameController : MonoBehaviour
             {
                 Time.timeScale -= missPenalty;
                 print(Time.timeScale);
-                mtb.tempo -= (missPenalty / 2);
+                mtb.tempo -= missPenalty;
             }
             AudioSource.PlayClipAtPoint(wrongSound, Camera.transform.position);
         }
