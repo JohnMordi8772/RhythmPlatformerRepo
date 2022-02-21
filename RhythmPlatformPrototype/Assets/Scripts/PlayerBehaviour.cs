@@ -27,7 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(jump) && grounded)
+        if (Input.GetKeyDown(jump) && grounded && jumped == false)
         {
             grounded = false;
             rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -35,6 +35,8 @@ public class PlayerBehaviour : MonoBehaviour
 
             jumped = true;
         }
+
+
     }
 
     void FixedUpdate()
@@ -53,6 +55,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             normalHB.size = new Vector2(1, 0.5f);
             GetComponent<SpriteRenderer>().size = new Vector2(1, 0.5f);
+            jumped = true;
         }
         else
         {
