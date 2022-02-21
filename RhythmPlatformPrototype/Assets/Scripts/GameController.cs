@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
     {
         pb = GameObject.Find("Player").GetComponent<PlayerBehaviour>();
         bpm = 122f;
-        upb = 2.5f;
+        upb = 5f;
         pb.moveSpeed = (upb * bpm) / 60f;
         missPenalty = .05f;
         correctBonus = .05f;
