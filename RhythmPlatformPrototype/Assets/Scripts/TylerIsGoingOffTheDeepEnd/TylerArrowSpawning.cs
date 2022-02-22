@@ -8,10 +8,11 @@ public class TylerArrowSpawning : MonoBehaviour
     
     
     public GameObject ArrowSpawner;
+    public TylerGameController tgc;
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnArrow", 4, .5f);
+        InvokeRepeating("SpawnArrow", 4, .25f);
     }
 
     // Update is called once per frame
@@ -22,6 +23,10 @@ public class TylerArrowSpawning : MonoBehaviour
 
     void SpawnArrow()
     {
-        Instantiate(ArrowSpawner, new Vector2(15.8f,0), Quaternion.identity);
+        
+        
+            Instantiate(ArrowSpawner, new Vector2(15.8f,0), Quaternion.identity);
+        
+        
     }
 }
