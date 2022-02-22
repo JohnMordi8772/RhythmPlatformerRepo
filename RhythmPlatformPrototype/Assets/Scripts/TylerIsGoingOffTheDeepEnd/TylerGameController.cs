@@ -19,7 +19,7 @@ public class TylerGameController : MonoBehaviour
     public int[] mapObjectArray;
     public AudioClip[] mapSoundArray;
 
-    public int currentArrow; //1 = up, 2 = down, 3 = left, 4 = right
+    public int currentArrow; //1 = up, 2 = down, 3 = left, 4 = right 
     public AudioClip currentSound;
 
 
@@ -27,8 +27,19 @@ public class TylerGameController : MonoBehaviour
 
     public void Awake()
     {
-        mapSoundArray = new AudioClip[16] { D4, D4, D5, null, A4, null, null, Ab4, null, G4, null, F4, null, D4, F4, G4};
-        mapObjectArray = new int[16]      {  3,  3,  1,    0,  2,    0,   5,   4,    0,  2,    5,  3,    0,  2,  1,  4};
+        mapSoundArray = new AudioClip[64] { D4, D4, D5, null, A4, null, null, Ab4, null, G4, null, F4, null, D4, F4, G4, 
+            C4, C4, D5, null, A4, null, null, Ab4, null, G4, null, F4, null, D4, F4, G4, 
+            B3, B3, D5, null, A4, null, null, Ab4, null, G4, null, F4, null, D4, F4, G4, 
+            Bb3, Bb3, D5, null, A4, null, null, Ab4, null, G4, null, F4, null, D4, F4, G4 };
+        //null are pauses, The rest are musical notes
+
+
+        mapObjectArray = new int[64]      {  3,  3,  1,    0,  2,    0,   5,   4,    0,  2,    5,  3,    0,  2,  1,  4, 
+            2, 2, 1, 0, 3, 0, 5, 4, 0, 2, 5, 3, 0, 2, 1, 4, 
+            3, 3, 1, 0, 2, 0, 5, 4, 0, 2, 5, 3, 0, 2, 1, 4, 
+            2, 2, 1, 0, 3, 0, 5, 4, 0, 2, 5, 3, 0, 2, 1, 4 };
+        // 0 = spike 1 = up, 2 = down, 3 = left, 4 = right, 5 = nothing
+
       //  missPenalty = .05f;
        // correctBonus = .05f;
        // mtb = Camera.GetComponent<MetronomeBehaviour>();
@@ -41,16 +52,23 @@ public class TylerGameController : MonoBehaviour
     }
     void Update()
     {
-        if(i > 15)
+        if(i > 63)
         {
             i = 0;
         }
-        if (j > 15)
+        if (j > 63)
         {
             j = 0;
         }
-
+        
         currentSound = mapSoundArray[j];
+
+        //this is a failsafe to avoid NullReferenceExceptionErrors
+        if(mapSoundArray[j] == null)
+        {
+            currentSound = mapSoundArray[j - 1];
+        }    
+        
         currentArrow = mapObjectArray[i];
     }
 
