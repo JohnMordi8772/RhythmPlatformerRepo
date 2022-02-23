@@ -24,8 +24,22 @@ public class MapGeneration : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int i = Random.Range(0, 2); 
-        if(i == 0)
+        //int i = Random.Range(0, 2); 
+        //if(i == 0)
+        //{
+        //    i = Random.Range(0, 2);
+        //}
+        //else
+        //{
+        //    i = Random.Range(2, 9);
+        //}
+        //currentPlatformType = PlatformTypes[i];
+    }
+
+    void SpawnPlatforms()
+    {
+        int i = Random.Range(0, 2);
+        if (i == 0)
         {
             i = Random.Range(0, 2);
         }
@@ -34,10 +48,6 @@ public class MapGeneration : MonoBehaviour
             i = Random.Range(2, 9);
         }
         currentPlatformType = PlatformTypes[i];
-    }
-
-    void SpawnPlatforms()
-    {
         Instantiate(currentPlatformType, new Vector2((newXposition - 2.5f), -2), Quaternion.identity);
         newXposition += 10f;
     }
