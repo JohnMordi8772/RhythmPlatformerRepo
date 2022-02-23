@@ -8,7 +8,7 @@ public class TylerSceneMonitorBehaviour : MonoBehaviour
     bool playerWithin, hit;
     KeyCode choice;
 
-    public GameObject upArrow, downArrow, leftArrow, rightArrow, spike;
+    public GameObject upArrow, downArrow, leftArrow, rightArrow, spike, choiceArrow, duckPlatform;
 
     //[SerializeField] Image placement;
     [SerializeField] List<Sprite> arrows;
@@ -60,6 +60,14 @@ public class TylerSceneMonitorBehaviour : MonoBehaviour
                 break;
             case 5:
                 Destroy(gameObject);
+                break;
+            case 6:
+                gc.noArrow = false;
+                //placement.sprite = arrows[0];
+                choiceArrow.SetActive(true);
+                break;
+            case 7:
+                duckPlatform.SetActive(true);
                 break;
             default:
                 Destroy(gameObject);
