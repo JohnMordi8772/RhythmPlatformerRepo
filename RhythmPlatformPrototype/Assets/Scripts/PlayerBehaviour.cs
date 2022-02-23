@@ -11,6 +11,7 @@ public class PlayerBehaviour : MonoBehaviour
     public CircleCollider2D slideHB;
 
     public bool jumped = false;
+    bool standing = true;
     public bool grounded;
     public Rigidbody2D rb2d;
     public float moveSpeed;
@@ -27,7 +28,7 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(jump) && grounded)
+        if (Input.GetKeyDown(jump) && grounded && standing)
         {
             grounded = false;
             rb2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -49,15 +50,9 @@ public class PlayerBehaviour : MonoBehaviour
     {
         rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y) * Time.deltaTime * 50;
 
-        if (Input.GetKey(slide))
+        if (Input.GetKey(slide) && standing && grounded)
         {
-            normalHB.size = new Vector2(1, 0.5f);
-            GetComponent<SpriteRenderer>().size = new Vector2(1, 0.5f);
-        }
-        else
-        {
-            normalHB.size = new Vector2(1, 1);
-            GetComponent<SpriteRenderer>().size = new Vector2(1, 1);
+            StartCoroutine(Slide());
         }
     }
 
@@ -93,6 +88,18 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
     public Vector2 curveCenterBottom;
+
+    IEnumerator Slide()
+    {
+        normalHB.size = new Vector2(1, 0.5f);
+        GetComponent<SpriteRenderer>().size = new Vector2(1, 0.5f);
+        standing = false;
+        yield return new WaitForSeconds(.5f);
+        normalHB.size = new Vector2(1, 1);
+        GetComponent<SpriteRenderer>().size = new Vector2(1, 1);
+        standing = true;
+
+    }
 
     void GroundCheck(ContactPoint2D[] contacts_, Collider2D coll)
     {

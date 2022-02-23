@@ -449,6 +449,8 @@ MonoBehaviour:
   TwoEightNotePlat2: {fileID: 5772268820812777584, guid: 781d550972f5a45409f8aeea6d3c5765, type: 3}
   QuarterEighth1: {fileID: 5772268820812777584, guid: 0b984a4488f5dcf4fb58ea483c66cfdd, type: 3}
   QuarterEighth2: {fileID: 5772268820812777584, guid: 237202fc1b587de49bd2d7eb57e08487, type: 3}
+  TripleChoice: {fileID: 7588678553498486849, guid: 846d7386ef6c95340ac77c5ef4c8ba86, type: 3}
+  DoubleChoice: {fileID: 2812428227093509545, guid: bfb65009e51272b49b4c4974ba910f1f, type: 3}
   newXposition: 0
   PlatformTypes: []
 --- !u!4 &1495744261

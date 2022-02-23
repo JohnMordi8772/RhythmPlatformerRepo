@@ -5,7 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 1e3f1e23750fa7643b348db53faa26a5
+  - enabled: 1
+    path: Assets/Scenes/JackScene.unity
+    guid: 4ac8954fd66cec54abe77ada7d174de0
+  - enabled: 1
+    path: Assets/Scenes/TylerScene.unity
+    guid: 3aadf883940ba604498d39078a8a9549
   m_configObjects: {}

@@ -40,7 +40,7 @@ public class RhythmMonitors : MonoBehaviour
                 break;
             case 3:
                 choice = KeyCode.LeftArrow;
-                ///placement.sprite = arrows[2];
+                //placement.sprite = arrows[2];
                 leftArrow.SetActive(true);
                 break;
             case 4:
